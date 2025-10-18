@@ -1,98 +1,91 @@
 <!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <title>NewsBit - News Magazine Newspaper HTML Template</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Favicon -->
-    <link href="{{ asset('asset/back/img/favicon.ico')}}" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{{ asset('asset/front/images/favicon.ico" type="image/x-icon') }}">
+    <link rel="icon" href="{{ asset('asset/front/images/favicon.ico" type="image/x-icon') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('asset/front/images/apple-touch-icon.png') }}">
     
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('asset/back/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('asset/back/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('asset/back/css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('asset/back/css/style.css')}}" rel="stylesheet">
+    <!-- THEME CSS
+	================================================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('asset/front/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="{{ asset('asset/front/plugins/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="{{ asset('asset/front/plugins/slick-carousel/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/front/plugins/slick-carousel/slick-theme.css') }}">
+    <!-- manin stylesheet -->
+    <link rel="stylesheet" href="{{ asset('asset/front/css/style.css') }}">
 </head>
-
 <body>
-    <div class="container-fluid position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
 
 
-        <!-- Sign In Start -->
-        <div class="container-fluid">
-            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="index.html" class="">
-                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
-                            </a>
-                            <h3>Sign In</h3>
-                        </div>
-                        <div method="POST" action="{{ route('login') }} class="form-floating mb-3">
-                             @csrf
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+<section class="login-signup section-padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-7">
+                <div class="login">
+                    <div class="text-center"><a href="index.html"><img src="{{ asset('asset/front/images/logos/logo.png')}}" alt="" class="img-fluid"></a></div>
+
+                    <h3 class="mt-4">Login Here</h3>
+                    <p class="mb-5">Enter your valid mail & password</p>
+                    <form method="POST" action="{{ route('login') }}" class="login-form row">
+                         @csrf
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="loginemail">Email</label>
+                                <input type="text" id="loginemail" class="form-control" name="email" placeholder="Enter mail" required>
                             </div>
-                            <a href="">Forgot Password</a>
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
-                    </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" class="form-control" name="password" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" type="submit">Login</button>
+
+                            <p class="mt-5 mb-0">Not a member yet? <a href="{{ route('register') }}">Register Here</a></p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- Sign In End -->
     </div>
+</section>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('asset/back/lib/chart/chart.min.js')}}"></script>
-    <script src="{{ asset('asset/back/lib/easing/easing.min.js')}}"></script>
-    <script src="{{ asset('asset/back/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{ asset('asset/back/lib/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{ asset('asset/back/lib/tempusdominus/js/moment.min.js')}}"></script>
-    <script src="{{ asset('asset/back/lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
-    <script src="{{ asset('asset/back/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 
-    <!-- Template Javascript -->
-    <script src="{{ asset('asset/back/js/main.js"></script>
+<!-- THEME JAVASCRIPT FILES
+================================================== -->
+<!-- initialize jQuery Library -->
+<script src="{{ asset('asset/front/plugins/jquery/jquery.js')}}"></script>
+<!-- Bootstrap jQuery -->
+<script src="{{ asset('asset/front/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+<!-- Slick Slider -->
+<script src="{{ asset('asset/front/plugins/slick-carousel/slick.min.js')}}"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<script src="{{ asset('asset/front/plugins/google-map/gmap.js')}}"></script>
+<!-- main js -->
+<script src="{{ asset('asset/front/js/custom.js')}}"></script>
+
 </body>
-
 </html>
 {{-- <x-guest-layout>
     <x-authentication-card>

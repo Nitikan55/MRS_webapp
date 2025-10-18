@@ -44,7 +44,7 @@
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                     <div class="ms-auto d-none d-lg-block">
-                        <a href="" class="btn btn-primary py-2 px-3">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary py-2 px-3">Login</a>
                     </div>
                 </div>
             </nav>
