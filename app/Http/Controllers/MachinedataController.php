@@ -16,6 +16,15 @@ class MachinedataController extends Controller
          return view('machinedata');
     }
 
+    public function addmachine()
+    {
+        return view('addmachine');
+    }
+
+    public function editmachine()
+    {
+        return view('editmachine');
+    }
     /**
      * Show the form for creating a new resource.
      */

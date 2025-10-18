@@ -57,18 +57,16 @@
                          </div>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">machine_type</label>
-                        <input type="email" wire:model="machine_type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        <div id="email" class="form-text">
-                          We'll never share your email with anyone else.
-                        </div>
+                        <input type="text" wire:model="machine_type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                       
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Status</label>
-                        <input type="password" wire:model="status" class="form-control" id="exampleInputstatus" />
+                        <input type="text" wire:model="status" class="form-control" id="exampleInputstatus" />
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">maintenance_cycle</label>
-                        <input type="password" wire:model="maintenance_cycle" class="form-control" id="exampleInputstatus" />
+                        <input type="text" wire:model="maintenance_cycle" class="form-control" id="exampleInputstatus" />
                       </div>
                     </div>
                     <!--end::Body-->

@@ -50,21 +50,22 @@
                   <!--begin::Form-->
                   <form wire:submit.prevent="add">
                     <!--begin::Body-->
-                    <div class="card-body">
-                        <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Name</label>
-                        <input type="text" wire:model="name" class="form-control" id="name" />
+                    <div class="mb-2">
+                        <label for="exampleInputPassword1" class="form-label">machine_name</label>
+                        <input type="text" wire:model="machine_name" class="form-control" id="machine_name" />
                          </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" wire:model="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        <div id="email" class="form-text">
-                          We'll never share your email with anyone else.
-                        </div>
+                      <div class="mb-2">
+                        <label for="exampleInputEmail1" class="form-label">machine_type</label>
+                        <input type="text" wire:model="machine_type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                       
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" wire:model="password" class="form-control" id="exampleInputPassword1" />
+                      <div class="mb-2">
+                        <label for="exampleInputStatus" class="form-label">Status</label>
+                        <input type="text" wire:model="status" class="form-control" id="exampleInputstatus" />
+                      </div>
+                      <div class="mb-2">
+                        <label for="exampleInputPassword1" class="form-label">maintenance_cycle</label>
+                        <input type="text" wire:model="maintenance_cycle" class="form-control" id="exampleInputstatus" />
                       </div>
                     </div>
                     <!--end::Body-->

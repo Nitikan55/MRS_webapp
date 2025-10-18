@@ -1,4 +1,4 @@
-<div>
+  <div>
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -35,7 +35,7 @@
                       <thead>
                        <tr> 
                         <th></th>
-                        <th colspan="4" class="text-end"><a href="{{ route('adduser')}}"class="btn btn-success mb-2">Create</a></th>
+                        <th colspan="4" class="text-end"><a href="{{ route('addmachine')}}"class="btn btn-success mb-2">Create</a></th>
                        </tr>
                         <tr>
                           <th style="width: 10px">id</th>
@@ -46,7 +46,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                         {{-- @foreach ($model as $item) 
+                         @foreach ($model as $item) 
                         <tr class="align-middle">
                           <td>{{$item->id}}</td>
                           <td>{{$item->machine_name}}</td>
@@ -55,10 +55,10 @@
                           <td>{{$item->maintenance_cycle}}</td>   
                           
                           <td>
-                             <a class="btn btn-warning" href="{{ route('edituser', ['id' => $item->id]) }}">Edit</a>
-                             <a wire:click='delete({{ $item->id }})' class="btn btn-danger">Delete</a>                
+                             <a class="btn btn-warning" href="{{ route('editmachine', ['id' => $item->machine_id]) }}">Edit</a>
+                             <button wire:click="delete({{ $item->machine_id }})" class="btn btn-danger">Delete</button>           
                           </td>                                          
-                        @endforeach --}}
+                        @endforeach
                         </tbody>
                      </table>
                     </div>

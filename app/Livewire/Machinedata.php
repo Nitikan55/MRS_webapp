@@ -1,23 +1,24 @@
 <?php
 
 namespace App\Livewire;
-use App\Models\Machin;
+use App\Models\machine;
 use Livewire\WithPagination;
 use Livewire\Component;
 
 class Machinedata extends Component
 {
-   use withPagination;
+    use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public function delete($id)
-    {
-    //    dd($id);
-        Machin::find($id)->delete();
-    }
+public function delete($machine_id)
+{
+       machine::find($machine_id)->delete();
+}
+    
+
     public function render()
     {
-        $model = Machin::Paginate(2);
+        $model = machine::paginate(10);
         return view('livewire.machinedata', compact('model'));
     }
 }

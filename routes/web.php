@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserdataController;
-// use App\Http\Controllers\MachinedataController;
+use App\Http\Controllers\MachinedataController;
 use App\Models\machine;
 
 Route::get('/', function () {
@@ -22,6 +22,15 @@ Route::get('/dashboard', function () {
     $model = machine::all();
     return view('dashboard', compact('model'));
 })->name('dashboard');
+
+    Route::get('/addmachine', 
+     [MachinedataController::class, 'addmachine'
+     ])->name('addmachine');
+
+
+      Route::get('/editmachine/{id}', function($machine_id) {
+        return view('editmachine', compact('machine_id'));
+    })->name('editmachine');
 
 //   Route::get('/dasboard', function () {
 //     $model = machine::all();
@@ -51,13 +60,13 @@ Route::middleware([
     // [UserdataController::class, 'index'
     // ])->name('userdata');
   
-    Route::get('/adduser', 
-    [UserdataController::class, 'adduser'
-    ])->name('adduser');
+    // Route::get('/adduser', 
+    // [UserdataController::class, 'adduser'
+    // ])->name('adduser');
 
-    Route::get('/edituser/{id}', 
-        function($id){
-            return view('edituser',compact('id'));
-    })->name('edituser');
+    // Route::get('/edituser/{id}', 
+    //     function($id){
+    //         return view('edituser',compact('id'));
+    // })->name('edituser');
 
 });

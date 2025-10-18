@@ -1,9 +1,4 @@
-{{-- @dd($model) --}}
-
 @extends('layouts.back.master')
-
 @section('content')
-
-   @livewire('machinedata')
-
+    @livewire('editmachine',['machine_id'=>$machine_id])
 @endsection
