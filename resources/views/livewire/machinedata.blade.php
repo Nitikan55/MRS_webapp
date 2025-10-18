@@ -1,6 +1,4 @@
-@extends('layouts.back.master')
-@section('content')
-    <div>
+<div>
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -48,7 +46,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                         @foreach ($model as $item) 
+                         {{-- @foreach ($model as $item) 
                         <tr class="align-middle">
                           <td>{{$item->id}}</td>
                           <td>{{$item->machine_name}}</td>
@@ -57,10 +55,10 @@
                           <td>{{$item->maintenance_cycle}}</td>   
                           
                           <td>
-                             {{-- <a class="btn btn-warning" href="{{ route('editmachine', ['id' => $item->id]) }}">Edit</a> --}}
+                             <a class="btn btn-warning" href="{{ route('edituser', ['id' => $item->id]) }}">Edit</a>
                              <a wire:click='delete({{ $item->id }})' class="btn btn-danger">Delete</a>                
                           </td>                                          
-                        @endforeach
+                        @endforeach --}}
                         </tbody>
                      </table>
                     </div>
@@ -81,5 +79,3 @@
         <!--end::App Content-->
       </main>     {{-- Care about people's approval and you will be their prisoner. --}}
 </div>
-
-@endsection
