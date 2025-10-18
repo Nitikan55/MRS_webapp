@@ -32,19 +32,14 @@ Route::get('/dashboard', function () {
         return view('editmachine', compact('machine_id'));
     })->name('editmachine');
 
-//   Route::get('/dasboard', function () {
-//     $model = machine::all();
-//     return view('machinedata', compact('model'));
-// });
+    Route::get('/adduser', 
+    [UserdataController::class, 'adduser'
+    ])->name('adduser');
 
-//     Route::get('/adduser', 
-//     [UserdataController::class, 'adduser'
-//     ])->name('adduser');
-
-//     Route::get('/edituser/{id}', 
-//         function($id){
-//             return view('edituser',compact('id'));
-//     })->name('edituser');
+    Route::get('/edituser/{id}', 
+        function($id){
+            return view('edituser',compact('id'));
+    })->name('edituser');
 
 Route::middleware([
     'auth:sanctum',

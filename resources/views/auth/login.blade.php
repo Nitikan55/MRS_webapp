@@ -57,6 +57,11 @@
                                 <label for="loginPassword">Password</label>
                                 <input type="password" id="loginPassword" class="form-control" name="password" placeholder="Password" required>
                             </div>
+                            <div class="text-end mt-2">
+                                @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}" class="link-primary">Forgot Password?</a>
+                                @endif
+                            </div>
                         </div>
                         <div class="col-md-12">
                             <button class="btn btn-primary" type="submit">Login</button>
@@ -69,7 +74,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- THEME JAVASCRIPT FILES
 ================================================== -->

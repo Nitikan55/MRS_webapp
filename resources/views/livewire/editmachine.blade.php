@@ -1,463 +1,63 @@
-<div>
-    <main class="app-main">
-        <!--begin::App Content Header-->
-        <div class="app-content-header">
-          <!--begin::Container-->
-          <div class="container-fluid">
-            <!--begin::Row-->
-            <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">General Form</h3></div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">General Form</li>
-                </ol>
-              </div>
-            </div>
-            <!--end::Row-->
-          </div>
-          <!--end::Container-->
-        </div>
-        <!--end::App Content Header-->
-        <!--begin::App Content-->
-        <div class="app-content">
-          <!--begin::Container-->
-          <div class="container-fluid">
-            <!--begin::Row-->
-            <div class="row g-4">
-              <!--begin::Col-->
-              <div class="col-12">
-                <div class="callout callout-info">
-                  For detailed documentation of Form visit
-                  <a
-                    href="https://getbootstrap.com/docs/5.3/forms/overview/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="callout-link"
-                  >
-                    Bootstrap Form
-                  </a>
-                </div>
-              </div>
-              <!--end::Col-->
-              <!--begin::Col-->
-              <div class="col-md-6">
-                <!--begin::Quick Example-->
-                <div class="card card-primary card-outline mb-4">
-                  <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Quick Example</div></div>
-                  <!--end::Header-->
-                  <!--begin::Form-->
-                  <form wire:submit.prevent="edit">
-                    <!--begin::Body-->
-                    <div class="card-body">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Forgot Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('asset/front/plugins/bootstrap/css/bootstrap.min.css') }}">
+</head>
+<body>
+<section class="login-signup section-padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6">
+                <div class="login">
+                    <h3 class="mt-4 mb-3">ลืมรหัสผ่าน</h3>
+                    <p class="mb-4">กรอกอีเมลของคุณเพื่อรับลิงก์ตั้งรหัสผ่านใหม่</p>
+
+                    @if (session('status'))
+                        <div class="alert alert-success">{{ session('status') }}</div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form wire:submit.prevent="edit">
                         <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">machine_name</label>
-                        <input type="text" wire:model="machine_name" class="form-control" id="machine_name" />
-                         </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">machine_type</label>
-                        <input type="text" wire:model="machine_type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                       
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Status</label>
-                        <input type="text" wire:model="status" class="form-control" id="exampleInputstatus" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">maintenance_cycle</label>
-                        <input type="text" wire:model="maintenance_cycle" class="form-control" id="exampleInputstatus" />
-                      </div>
-                    </div>
-                    <!--end::Body-->
-                    <!--begin::Footer-->
-                    <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                    <!--end::Footer-->
-                  </form>
-                  <!--end::Form-->
+                            <label for="machine_name" class="form-label">ชื่อเครื่องจักร</label>
+                            <input type="text" id="machine_name" wire:model="machine_name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="machine_type" class="form-label">ประเภทเครื่องจักร</label>
+                            <input type="text" id="machine_type" wire:model="machine_type" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">สถานะ</label>
+                            <input type="text" id="status" wire:model="status" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="maintenance_cycle" class="form-label">รอบการบำรุงรักษา</label>
+                            <input type="number" id="maintenance_cycle" wire:model="maintenance_cycle" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="new_password" class="form-label">รหัสใหม่ (ถ้าต้องการเปลี่ยน)</label>
+                            <input type="password" id="new_password" wire:model="new_password" class="form-control">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">แก้ไข</button>
+                        </div>
+                    </form>
                 </div>
-                <!--end::Quick Example-->
-                <!--begin::Input Group-->
-                {{-- <div class="card card-success card-outline mb-4">
-                  <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Input Group</div></div>
-                  <!--end::Header-->
-                  <!--begin::Body-->
-                  <div class="card-body">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">@</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Username"
-                        aria-label="Username"
-                        aria-describedby="basic-addon1"
-                      />
-                    </div>
-                    <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Recipient's username"
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
-                      />
-                      <span class="input-group-text" id="basic-addon2">@example.com</span>
-                    </div>
-                    <div class="mb-3">
-                      <label for="basic-url" class="form-label">Your vanity URL</label>
-                      <div class="input-group">
-                        <span class="input-group-text" id="basic-addon3"
-                          >https://example.com/users/</span
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="basic-url"
-                          aria-describedby="basic-addon3 basic-addon4"
-                        />
-                      </div>
-                      <div class="form-text" id="basic-addon4">
-                        Example help text goes outside the input group.
-                      </div>
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">$</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        aria-label="Amount (to the nearest dollar)"
-                      />
-                      <span class="input-group-text">.00</span>
-                    </div>
-                    <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Username"
-                        aria-label="Username"
-                      />
-                      <span class="input-group-text">@</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Server"
-                        aria-label="Server"
-                      />
-                    </div>
-                    <div class="input-group">
-                      <span class="input-group-text">With textarea</span>
-                      <textarea class="form-control" aria-label="With textarea"></textarea>
-                    </div>
-                  </div>
-                  <!--end::Body-->
-                  <!--begin::Footer-->
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                  </div>
-                  <!--end::Footer-->
-                </div>
-                <!--end::Input Group-->
-                <!--begin::Horizontal Form-->
-                <div class="card card-warning card-outline mb-4">
-                  <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Horizontal Form</div></div>
-                  <!--end::Header-->
-                  <!--begin::Form-->
-                  <form>
-                    <!--begin::Body-->
-                    <div class="card-body">
-                      <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail3" />
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputPassword3" />
-                        </div>
-                      </div>
-                      <fieldset class="row mb-3">
-                        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                        <div class="col-sm-10">
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="gridRadios"
-                              id="gridRadios1"
-                              value="option1"
-                              checked
-                            />
-                            <label class="form-check-label" for="gridRadios1"> First radio </label>
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="gridRadios"
-                              id="gridRadios2"
-                              value="option2"
-                            />
-                            <label class="form-check-label" for="gridRadios2"> Second radio </label>
-                          </div>
-                          <div class="form-check disabled">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="gridRadios"
-                              id="gridRadios3"
-                              value="option3"
-                              disabled
-                            />
-                            <label class="form-check-label" for="gridRadios3">
-                              Third disabled radio
-                            </label>
-                          </div>
-                        </div>
-                      </fieldset>
-                      <div class="row mb-3">
-                        <div class="col-sm-10 offset-sm-2">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1" />
-                            <label class="form-check-label" for="gridCheck1">
-                              Example checkbox
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--end::Body-->
-                    <!--begin::Footer-->
-                    <div class="card-footer">
-                      <button type="submit" class="btn btn-warning">Sign in</button>
-                      <button type="submit" class="btn float-end">Cancel</button>
-                    </div>
-                    <!--end::Footer-->
-                  </form>
-                  <!--end::Form-->
-                </div>
-                <!--end::Horizontal Form-->
-              </div>
-              <!--end::Col-->
-              <!--begin::Col-->
-              <div class="col-md-6">
-                <!--begin::Different Height-->
-                <div class="card card-secondary card-outline mb-4">
-                  <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Different Height</div></div>
-                  <!--end::Header-->
-                  <!--begin::Body-->
-                  <div class="card-body">
-                    <input
-                      class="form-control form-control-lg"
-                      type="text"
-                      placeholder=".form-control-lg"
-                      aria-label=".form-control-lg example"
-                    />
-                    <br />
-                    <input
-                      class="form-control"
-                      type="text"
-                      placeholder="Default input"
-                      aria-label="default input example"
-                    />
-                    <br />
-                    <input
-                      class="form-control form-control-sm"
-                      type="text"
-                      placeholder=".form-control-sm"
-                      aria-label=".form-control-sm example"
-                    />
-                  </div>
-                  <!--end::Body-->
-                </div>
-                <!--end::Different Height-->
-                <!--begin::Different Width-->
-                <div class="card card-danger card-outline mb-4">
-                  <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Different Width</div></div>
-                  <!--end::Header-->
-                  <!--begin::Body-->
-                  <div class="card-body">
-                    <!--begin::Row-->
-                    <div class="row">
-                      <!--begin::Col-->
-                      <div class="col-3">
-                        <input type="text" class="form-control" placeholder=".col-3" />
-                      </div>
-                      <!--end::Col-->
-                      <!--begin::Col-->
-                      <div class="col-4">
-                        <input type="text" class="form-control" placeholder=".col-4" />
-                      </div>
-                      <!--end::Col-->
-                      <!--begin::Col-->
-                      <div class="col-5">
-                        <input type="text" class="form-control" placeholder=".col-5" />
-                      </div>
-                      <!--end::Col-->
-                    </div>
-                    <!--end::Row-->
-                  </div>
-                  <!--end::Body-->
-                </div>
-                <!--end::Different Width-->
-                <!--begin::Form Validation-->
-                <div class="card card-info card-outline mb-4">
-                  <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Form Validation</div></div>
-                  <!--end::Header-->
-                  <!--begin::Form-->
-                  <form class="needs-validation" novalidate>
-                    <!--begin::Body-->
-                    <div class="card-body">
-                      <!--begin::Row-->
-                      <div class="row g-3">
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                          <label for="validationCustom01" class="form-label">First name</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="validationCustom01"
-                            value="Mark"
-                            required
-                          />
-                          <div class="valid-feedback">Looks good!</div>
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                          <label for="validationCustom02" class="form-label">Last name</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="validationCustom02"
-                            value="Otto"
-                            required
-                          />
-                          <div class="valid-feedback">Looks good!</div>
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                          <label for="validationCustomUsername" class="form-label">Username</label>
-                          <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="validationCustomUsername"
-                              aria-describedby="inputGroupPrepend"
-                              required
-                            />
-                            <div class="invalid-feedback">Please choose a username.</div>
-                          </div>
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                          <label for="validationCustom03" class="form-label">City</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="validationCustom03"
-                            required
-                          />
-                          <div class="invalid-feedback">Please provide a valid city.</div>
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                          <label for="validationCustom04" class="form-label">State</label>
-                          <select class="form-select" id="validationCustom04" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>...</option>
-                          </select>
-                          <div class="invalid-feedback">Please select a valid state.</div>
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="col-md-6">
-                          <label for="validationCustom05" class="form-label">Zip</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="validationCustom05"
-                            required
-                          />
-                          <div class="invalid-feedback">Please provide a valid zip.</div>
-                        </div>
-                        <!--end::Col-->
-                        <!--begin::Col-->
-                        <div class="col-12">
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                              id="invalidCheck"
-                              required
-                            />
-                            <label class="form-check-label" for="invalidCheck">
-                              Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">You must agree before submitting.</div>
-                          </div>
-                        </div>
-                        <!--end::Col-->
-                      </div>
-                      <!--end::Row-->
-                    </div> --}}
-                    <!--end::Body-->
-                    <!--begin::Footer-->
-                    {{-- <div class="card-footer">
-                      <button class="btn btn-info" type="submit">Submit form</button>
-                    </div>
-                    <!--end::Footer-->
-                  </form> --}}
-                  <!--end::Form-->
-                  <!--begin::JavaScript-->
-                  {{-- <script>
-                    // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (() => {
-                      'use strict';
-
-                      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                      const forms = document.querySelectorAll('.needs-validation');
-
-                      // Loop over them and prevent submission
-                      Array.from(forms).forEach((form) => {
-                        form.addEventListener(
-                          'submit',
-                          (event) => {
-                            if (!form.checkValidity()) {
-                              event.preventDefault();
-                              event.stopPropagation();
-                            }
-
-                            form.classList.add('was-validated');
-                          },
-                          false,
-                        );
-                      });
-                    })();
-                  </script> --}}
-                  <!--end::JavaScript-->
-                </div>
-                <!--end::Form Validation-->
-              </div>
-              <!--end::Col-->
             </div>
-            <!--end::Row-->
-          </div>
-          <!--end::Container-->
         </div>
-        <!--end::App Content-->
-      </main>
-</div>
+    </div>
+</section>
+<script src="{{ asset('asset/front/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+</body>
+</html>
